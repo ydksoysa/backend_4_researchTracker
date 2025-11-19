@@ -41,14 +41,14 @@ public class AuthService {
         }
 
         // ✅ Hardcoded PI account - FIXED: consistent username format
-        if ("PersonalInstructor".equalsIgnoreCase(username) && "123".equals(password)) {
-            return jwtUtil.generateToken("PersonalInstructor", "PI");
+        if ("pi".equalsIgnoreCase(username) && "123".equals(password)) {
+            return jwtUtil.generateToken("pi", "PI");
         }
 
         // Also support "Personal Instructor" with space
-        if ("Personal Instructor".equalsIgnoreCase(username) && "123".equals(password)) {
+       /* if ("Personal Instructor".equalsIgnoreCase(username) && "123".equals(password)) {
             return jwtUtil.generateToken("Personal Instructor", "PI");
-        }
+        }*/
 
         // Otherwise check user in DB
         User user = userRepository.findByUsername(username)
